@@ -5,7 +5,7 @@ name: CI
 on:
   pull_request:
     branches:
-      - main        # triggered when a PR is opened from dev → main
+      - main
   workflow_dispatch:
 
 jobs:
@@ -15,6 +15,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Debug — list files    # ← add this to see what is checked out
+        run: |
+          pwd
+          ls -la
+          ls -la tests/ || echo "tests/ folder not found"
 
       - name: Set up Python
         uses: actions/setup-python@v4

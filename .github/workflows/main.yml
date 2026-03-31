@@ -6,6 +6,7 @@ on:
   pull_request:
     branches:
       - main        # triggered when a PR is opened from dev → main
+  workflow_dispatch:
 
 jobs:
   test:
